@@ -29,4 +29,4 @@ Por último, `list(resultado)` convierte el objeto `map` en una lista para poder
 
 ### Juan Sebastián Marín Aristizábal
 ### 1034988997
-### Taller: Paradigma de programación funciona - 2026
+### Taller: Paradigma de programación funcional - 2026
