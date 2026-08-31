@@ -6,14 +6,6 @@ def numeros_positivos(numeros):
     return list(filter(es_positivo, numeros))
 
 
-
-numeros = [-5, 3, -2, 8, 0, 10, -7]
-positivos = numeros_positivos(numeros)
-
-print("Números originales:", numeros)
-print("Números positivos:", positivos)
-
-
 class TestNumerosPositivos(unittest.TestCase):
 
     def test_numeros_positivos_y_negativos(self):
@@ -42,4 +34,9 @@ class TestNumerosPositivos(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
+    numeros = [-5, 3, -2, 8, 0, 10, -7]
+    positivos = numeros_positivos(numeros)
+    print("Números originales:", numeros)
+    print("Números positivos:", positivos)
+
+    unittest.main(argv=[''], exit=False, verbosity=2)

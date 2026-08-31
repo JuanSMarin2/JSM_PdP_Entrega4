@@ -1,36 +1,42 @@
 import unittest
 
 
-def calcular_factorial(numero):
-    factorial = 1
-
-    for i in range(1, numero + 1):
-        factorial = factorial * i
-
-    return factorial
+def numeros_positivos(numeros):
+    es_positivo = lambda x: x > 0
+    return list(filter(es_positivo, numeros))
 
 
+class TestNumerosPositivos(unittest.TestCase):
 
-numero = int(input("Ingrese un número: "))
-resultado = calcular_factorial(numero)
+    def test_numeros_positivos_y_negativos(self):
+        self.assertEqual(
+            numeros_positivos([-5, 3, -2, 8, 10]),
+            [3, 8, 10]
+        )
 
-print("El factorial de", numero, "es:", resultado)
+    def test_lista_solo_positivos(self):
+        self.assertEqual(
+            numeros_positivos([1, 2, 3, 4]),
+            [1, 2, 3, 4]
+        )
 
+    def test_lista_sin_positivos(self):
+        self.assertEqual(
+            numeros_positivos([-1, -2, 0]),
+            []
+        )
 
-class TestFactorial(unittest.TestCase):
-
-    def test_factorial_cero(self):
-        self.assertEqual(calcular_factorial(0), 1)
-
-    def test_factorial_uno(self):
-        self.assertEqual(calcular_factorial(1), 1)
-
-    def test_factorial_cinco(self):
-        self.assertEqual(calcular_factorial(5), 120)
-
-    def test_factorial_diez(self):
-        self.assertEqual(calcular_factorial(10), 3628800)
+    def test_cero_no_es_positivo(self):
+        self.assertEqual(
+            numeros_positivos([0, 5, -3]),
+            [5]
+        )
 
 
 if __name__ == "__main__":
-    unittest.main()
+    numeros = [-5, 3, -2, 8, 0, 10, -7]
+    positivos = numeros_positivos(numeros)
+    print("Números originales:", numeros)
+    print("Números positivos:", positivos)
+
+    unittest.main(argv=[''], exit=False, verbosity=2)

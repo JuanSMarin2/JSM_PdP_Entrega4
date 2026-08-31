@@ -5,15 +5,6 @@ def calcular_area(altura, ancho):
     return altura * ancho
 
 
-
-altura = int(input("Ingrese la altura del rectangulo: "))
-ancho = int(input("Ingrese el ancho del rectangulo: "))
-
-area = calcular_area(altura, ancho)
-
-print("El área del rectangulo es:", area)
-
-
 class TestArea(unittest.TestCase):
 
     def test_area_rectangulo(self):
@@ -28,6 +19,14 @@ class TestArea(unittest.TestCase):
     def test_area_diferente(self):
         self.assertEqual(calcular_area(7, 3), 21)
 
+    def test_area_negativa(self):
+        self.assertEqual(calcular_area(-5, 4), -20)
+
 
 if __name__ == "__main__":
-    unittest.main()
+    altura = int(input("Ingrese la altura del rectangulo: "))
+    ancho = int(input("Ingrese el ancho del rectangulo: "))
+    area = calcular_area(altura, ancho)
+    print("El área del rectangulo es:", area)
+
+    unittest.main(argv=[''], exit=False, verbosity=2)
